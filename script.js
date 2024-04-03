@@ -150,3 +150,75 @@ function addPageTitle()
     title.appendChild( titleText );
     document.head.appendChild(title);
 }
+
+/*=============== COMPLETE PROJECTS COUNTER ===============*/
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.title');
+
+    const number = projectCards.length;
+
+    document.querySelector('#comText').textContent = `${number}`;
+});
+
+/*=============== COMPLETE PROJECTS COUNTER ===============*/
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.c-gallery');
+
+    const number = projectCards.length;
+
+    document.querySelector('#countGall').textContent = `${number}`;
+});
+
+/*=============== COMPLETE AGE COUNTER ===============*/
+document.addEventListener("DOMContentLoaded", function() {
+    let defAge = 17;
+
+    var Months = ["January", "Febuary", "March", "April", "May",
+        "June", "July", "August", "September", "October", "November",
+        "December"];
+
+    var Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+        "Friday", "Saturnday"];
+
+    var myDate = new Date(),
+        year = myDate.getFullYear(),
+        month = myDate.getMonth(),
+        date = myDate.getDate(),
+        day = myDate.getDay(),
+        hour = myDate.getHours(),
+        minutes = myDate.getMinutes(),
+        seconds = myDate.getSeconds();
+
+    if(date == 13 && month == 9) {
+        defAge++;
+        
+        console.log("%d %s %s %d %d:%d:%d", date, Days[day],
+                Months[month],year, hour, minutes, seconds);
+    }
+    document.getElementById("ageText").innerText = defAge;
+});
+/*=============== VISITS COUNTER ===============*/
+
+if (!localStorage.getItem('visitCount')) {
+    localStorage.setItem('visitCount', 0);
+}
+
+// Get the current visit count from local storage
+var visitCount = parseInt(localStorage.getItem('visitCount'));
+
+// Increment the visit count
+visitCount++;
+
+// Update the visit count in local storage
+localStorage.setItem('visitCount', visitCount);
+
+// Display the visit count on the webpage
+document.getElementById('visitCount').textContent = visitCount;
+
+// Add event listener to the reset button
+document.getElementById('resetButton').addEventListener('click', function() {
+    // Reset the visit count to 0
+    localStorage.setItem('visitCount', 0);
+    // Update the displayed visit count
+    document.getElementById('visitCount').textContent = 0;
+});
