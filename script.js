@@ -198,27 +198,3 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("ageText").innerText = defAge;
 });
 /*=============== VISITS COUNTER ===============*/
-
-if (!localStorage.getItem('visitCount')) {
-    localStorage.setItem('visitCount', 0);
-}
-
-// Get the current visit count from local storage
-var visitCount = parseInt(localStorage.getItem('visitCount'));
-
-// Increment the visit count
-visitCount++;
-
-// Update the visit count in local storage
-localStorage.setItem('visitCount', visitCount);
-
-// Display the visit count on the webpage
-document.getElementById('visitCount').textContent = visitCount;
-
-// Add event listener to the reset button
-document.getElementById('resetButton').addEventListener('click', function() {
-    // Reset the visit count to 0
-    localStorage.setItem('visitCount', 0);
-    // Update the displayed visit count
-    document.getElementById('visitCount').textContent = 0;
-});
