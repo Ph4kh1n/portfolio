@@ -25,6 +25,7 @@
 	fwrite($file, $count);
 ?>
 
+<?php include("function.php"); ?>
 <!-- partial:index.partial.html -->
 <div class="hero-section">
 		<video id="background-video" oncontextmenu="return false;" autoplay loop muted >
