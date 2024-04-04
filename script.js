@@ -197,4 +197,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.getElementById("ageText").innerText = defAge;
 });
-/*=============== VISITS COUNTER ===============*/

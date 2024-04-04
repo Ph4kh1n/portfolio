@@ -17,6 +17,13 @@
 	 <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
 </head>
 <body>
+<?php
+	$file = fopen("visits_counter.txt", "w");
+	session_start();
+	$_SESSION['v'] = $_SESSION['v']+1;
+	$count = $_SESSION['v'];
+	fwrite($file, $count);
+?>
 <!-- partial:index.partial.html -->
 <div class="hero-section">
 		<video id="background-video" oncontextmenu="return false;" autoplay loop muted >
@@ -82,7 +89,7 @@
 						<!--<img src="https://firebasestorage.googleapis.com/v0/b/upload-images-e8dac.appspot.com/o/images%2F2024-3-17_21-8-49_0.jpg?alt=media&token=14766c26-caab-45ff-86b0-5e9b22b75a85" class="hover-target" alt="">
 						--></div>
 					<div class="col-lg-8 text-center mt-4 hover-target">
-						<p>Total visits: <span id="visitCount"><?php include 'counter.php'; ?></span></p>
+						<p>Page view : <span><?php include('counter.php'); ?></span></p>
 					</div>
 					<div class="col-12 text-center">
 						<!--<p><span>Phakhin Nongthong</span></p>-->
