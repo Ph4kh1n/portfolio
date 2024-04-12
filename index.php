@@ -90,7 +90,7 @@
 						<!--<img src="https://firebasestorage.googleapis.com/v0/b/upload-images-e8dac.appspot.com/o/images%2F2024-3-17_21-8-49_0.jpg?alt=media&token=14766c26-caab-45ff-86b0-5e9b22b75a85" class="hover-target" alt="">
 						--></div>
 					<div class="col-lg-8 text-center mt-4 hover-target">
-						<!--<p>Page view : <span></span></p>-->
+						<p>Page view : <span>0</span></p>
 					</div>
 					<div class="col-12 text-center">
 						<!--<p><span>Phakhin Nongthong</span></p>-->
