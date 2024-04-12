@@ -1,4 +1,3 @@
-
 var typed = new Typed('#typedText', {
 	strings: ["Web Developer.", "C Programming.", "Photographer"],
 	typeSpeed: 30,
@@ -199,14 +198,45 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /*=============== INCOMPLETE VISITS COUNTER ===============*/
-let visitCount = localStorage.getItem('visitCount');
 
-if (!visitCount) {
-    visitCount = 1; // ถ้าไม่มีให้เริ่มที่ 1
-} else {
-    visitCount = parseInt(visitCount) + 1; // เพิ่มค่านับ
-}
+const firebaseConfig = {
+    apiKey: "AIzaSyAydceek__AtMumTO2ONQlicWVtBmwT-30",
+    authDomain: "visits-counter-1499e.firebaseapp.com",
+    projectId: "visits-counter-1499e",
+    storageBucket: "visits-counter-1499e.appspot.com",
+    messagingSenderId: "209528750470",
+    appId: "1:209528750470:web:14f0019b8bc98fb93aec07"
+};
 
-localStorage.setItem('visitCount', visitCount);
+firebase.initializeApp(firebaseConfig);
 
-document.getElementById('visitCount').textContent = visitCount;
+const db = firebase.firestore();
+
+db.collection('visits').doc('visitCount').get()
+.then((doc) => {
+    let visitCount;
+    if (doc.exists) {
+        visitCount = doc.data().count;
+    } else {
+        visitCount = 1;
+    }
+
+    visitCount++;
+
+      // บันทึกค่านับใหม่ลงใน Firestore
+    db.collection('visits').doc('visitCount').set({
+        count: visitCount
+    })
+    .then(() => {
+        console.log('Document successfully written!');
+    })
+    .catch((error) => {
+        console.error('Error writing document: ', error);
+    });
+
+    // แสดงค่านับในหน้าเว็บ
+    document.getElementById('visitCount').textContent = visitCount;
+  })
+  .catch((error) => {
+      console.log('Error getting document:', error);
+  });
