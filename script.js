@@ -197,3 +197,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.getElementById("ageText").innerText = defAge;
 });
+
+/*=============== INCOMPLETE VISITS COUNTER ===============*/
+let visitCount = localStorage.getItem('visitCount');
+
+if (!visitCount) {
+    visitCount = 1; // ถ้าไม่มีให้เริ่มที่ 1
+} else {
+    visitCount = parseInt(visitCount) + 1; // เพิ่มค่านับ
+}
+
+localStorage.setItem('visitCount', visitCount);
+
+document.getElementById('visitCount').textContent = visitCount;
